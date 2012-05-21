@@ -56,6 +56,7 @@
 
 .. 工程链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. OBP相关链接~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _OBP: http://code.google.com/p/openbookproject
 .. _OBP工程: http://code.google.com/p/openbookproject
 .. _OBP流程: http://code.google.com/p/openbookproject/wiki/FlowSphinx
 .. _OBP参与: http://code.google.com/p/openbookproject/wiki/HowtoJoin

@@ -2,6 +2,7 @@
 .. 成员相关链接~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _Zoom.Quiet: http://code.google.com/p/openbookproject/wiki/ZoomQuiet
 .. 外部链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _42: http://en.wikipedia.org/wiki/42_(number)
 
 .. _Gmail: http://zh.wikipedia.org/wiki/GMail
 .. _crx: http://code.google.com/chrome/extensions/getstarted.html
@@ -18,9 +19,20 @@
 .. node相关 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _cnodejs: http://cnodejs.org/
 .. _NAE: http://cnodejs.net/
-
 .. _node.js: http://nodejs.org/
+
+.. _浏览器战争: http://en.wikipedia.org/wiki/Browser_wars
+.. _猎豹浏览器: http://www.liebao.cn/
+
+.. _Google: http://zh.wikipedia.org/wiki/Google
 .. _V8: http://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)
+.. _Chromium: http://zh.wikipedia.org/wiki/Chromium
+.. _ChromeiumOS: http://www.chromium.org/chromium-os
+.. _Chrome: http://zh.wikipedia.org/wiki/Google_Chrome
+.. _WebKit: http://zh.wikipedia.org/wiki/WebKit
+.. _Safari: http://zh.wikipedia.org/wiki/Safari
+.. _Apple: http://zh.wikipedia.org/wiki/%E8%98%8B%E6%9E%9C%E5%85%AC%E5%8F%B8
+
 .. _JavaScript: https://developer.mozilla.org/en/JavaScript
 .. _JS: http://zh.wikipedia.org/wiki/JavaScript
 .. _HTML: http://zh.wikipedia.org/wiki/Html
@@ -66,7 +78,6 @@
 .. |zqeyes| image:: _static/zq-eyes.png
    :alt: 是也乎;-)
    :target: http://wiki.woodpecker.org.cn/moin/ZoomQuiet
-
 
 
 

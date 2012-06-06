@@ -141,12 +141,30 @@ kcpish.js
 
 `JS`_ 真心 `碉堡` 了! 所有最常见的操作都内置了!
 
-- 字串的 `base64` 编码: `Buffer(uri).toString('base64')`
-- 字串的 `md5` 编码: `crypto.createHash('md5').update(字串).digest("hex")`
+- 字串的 `base64` 编码?! `window.btoa`
+- 字串的 `md5` 编码: `hex_md5()`
+    
+    - 不过,这个,真心要使用外部模块
+    - 是那个 `<script type="text/javascript" src="md5.js">`
+    - 看其中的注释,感动哪,好人多哪! 
+
+::
+    
+    /*
+     * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
+     * Digest Algorithm, as defined in RFC 1321.
+     * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
+     * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+     * Distributed under the BSD License
+     * See http://pajhome.org.uk/crypt/md5 for more info.
+     */
+
+
+
 - 当前时间戮只能先模拟小数点后的: `Date.parse(new Date())/1000+".512"`
-- `POST` 上来的数据体 `req.body.uri`
-- 实际数据的引用: `req.body.uri`
-- JSON数据体的解析: `JSON.parse`
+- 对外请求,果然是`XMLHttpRequest`
+- 实际数据的接收使用 `req.onreadystatechange` 进行监控
+- 数据体直接解析: `JSON.parse(req.responseText)`
 
 
 

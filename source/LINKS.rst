@@ -11,8 +11,11 @@
 .. _tmux: http://www.linuxtoy.org/archives/from-screen-to-tmux.html
 .. _git: http://progit.org/book/zh/
 .. _SSH: http://zh.wikipedia.org/zh/SSH
+.. _MD5: http://zh.wikipedia.org/wiki/MD5
+
 .. _Lua: http://en.wikipedia.org/wiki/Lua_%28programming_language%29
 .. _正则表达式: http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F
+.. _JSON: http://zh.wikipedia.org/wiki/Json
 
 .. _reSTsections: http://sphinx.pocoo.org/rest.html#sections
 

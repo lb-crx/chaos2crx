@@ -1,112 +1,93 @@
 .. include:: ../LINKS.rst
 
 
-Coffee整备
-==============
+金山云安全整备
+============================
 
-只要明确一些 `CoffeeScript`_ 的`基本形式` 80% 的实际编程就可以混进去了 `!-)` :
-
-严正推荐: 
-
-- `图灵社区 : 阅读 : CoffeeScript语言参考 <http://www.ituring.com.cn/article/559>`_
-  
-  - 未尽的好书内容
-
-- `3本免费CoffeeScript电子书 <http://heikezhi.com/2011/07/03/3-free-coffeescript-ebooks/>`_
+好的,俺想象的场景是:
+- 每当打开一个页面时
+- 俺的 `crx`_ 就将当前页面的 URL 发送给 `金山网址云 <http://code.ijinshan.com/api/devmore4.html#md1>`_
+- 然后,根据返回的结论,决定,是否对页面进行刷红,并警告!
 
 
-中文的推荐:
-
-- `为什么CoffeeScript这么美? - CNode <http://club.cnodejs.org/topic/4f16442ccae1f4aa270010cb>`_
-- `10个让朋友对你刮目相看的CoffeeScript单行代码绝技 <http://heikezhi.com/2011/06/08/10-coffeescript-one-liners-to-impress-your-friends/>`_
+问题是看 `金山云安全开放平台 <http://code.ijinshan.com/api/devmore4.html#md2>`_ 的文档也是种挑战吼!
+必须先研究一下!
 
 
+简单的説
+--------------------------
 
-基本语法
----------------
+`金山网址云 <http://code.ijinshan.com/api/devmore4.html#md1>`_ 是个标准的接口服务
 
+- 对钓鱼网站的查询,入口地址是 http://open.pc120.com/phish/
+- 接受严密吻合要求的查询参数:
 
 ::
 
-    # 单行注释
-    ###
-        多行
-        注释
-    ###
-    a="hollo"
-    b= 1
-    # 多行字串变量
-    mobyDick = """       
-      <strong>
-        cup of coffeescript
-      </strong>
-      """
-    # 函式声明
-    func = -> "bar"
-    # 有参数函式
-    func = (a, b) -> 
-        # 不用 return() 最后一行就是自动返回的
-        a * b
-    alert b+a //省去函式的参数括号
+    /phish/?q=[***]&appkey=[***]&timestamp=[***]&sign=[***]
+           |   |            |                |          +- 数字签字
+           |   |            |                |          生成忒复杂,详见见下文
+           |   |            |                +- 距离1970.1.1零点的秒数
+           |   |            |                   要求精确到小数点后3位
+           |   |            +- 从金山云申請到的
+           |   +- 对目标URL进行 urlsafe base64 编码得到的字串
+           +- 使用?引导出参数列表
 
-    kids =    // 字典变量使用缩进完成声明,大爱!
-      brother:
-        name: "Max"
-        age:  11
-      sister:
-        name: "Ida"
-        age:  9
-    
-    if 1 isnt c   # 不等于
-        console.log "Yes"
-        # 不论前台还是后台开发,都不建议使用 alert() 进行调试输出了,,
-    else
-        console.log "No"
-    # 省去原先的各种多余 {}
-    # 可以条件后置
-    console.log "It's cold!" if heat < 5
-    for i in [1..10] by 2  # 伟大的列表推导式 ;-)
-        console.log "hollo:"+i
-    # 跨行内置过程
-    alert(
-      try
-        nonexistent / undefined
-      catch error
-        "And the error is ... #{error}"
-    )
-    # JS嵌入
-    hi = `function() {
-      return [document.title, "Hello JavaScript"].join(": ");
-    }`
-    # 分类判定
-    switch day
-      when "Mon" then go work
-      when "Tue" then go relax
-      when "Thu" then go iceFishing
-      when "Fri", "Sat"
-        if day is bingoDay
-          go bingo
-          go dancing
-      when "Sun" then go church
-      else go work
-    # 区间判定
-    cholesterol = 127
-    healthy = 200 > cholesterol > 60    
+
+- 一般从 `金山云安全开放平台 <http://code.ijinshan.com/api/>`_ 申請开发认证时,可以获得以下信息
+
+::
+
+  应用键(APPKEY): k-60666
+  安全码(SECRET):  99fc9fdbc6761f7d898ad25762407373
+
+
+- 那么,每次查询时,必须的 `数字签字` 是怎么生成的呢?
+- 先组成这样一个字串
+
+::
+
+    /phish/?appkey=[APPKEY]&q=[***]&timestamp=[***][SECRET]
+                      |         |               |   +- 安全码
+                      |         |               +- 距离1970.1.1零点的秒数,精确到小数后3位
+                      |         +- 对目标URL进行 urlsafe base64 编码得到的字串
+                      +- 应用键值
+
+
+- 然后,将此字串进行 `MD5`_ 计算! 得到的字串就是 `数字签名`
+- 最后将整个 URL 拼到 http://open.pc120.com 后,直接访问,就可以获得 `JSON`_ 格式的回答
+- 如果回答形如::
+
+    {"success": 1, "phish ": 3} 
+
+- 说明们成功了! 是否钓鱼网站参考:
+
+.. list-table:: 类型表
+   :widths: 10 30
+   :header-rows: 1
+
+   * - phish状态代号
+     - 含义
+   * - `-1`
+     - 未知
+   * - `0`
+     - 非钓鱼
+   * - `1`
+     - 钓鱼
+   * - `2`
+     - 网站高风险,有钓鱼嫌疑
 
 
 
 
-- 基本数据
-- 全局方法
-- 基本对象
-都同正常的 `node.js`_ ,但是,都可以更加简洁的表述!
+齐活儿! 这么大篇的技术文档,看穿了其实就以上这么点儿东西;-o
+
+但是,怎么折腾成一个可用的 `crx`_ 呢?!
 
 
 
 
-.. warning:: (#_#)
+.. warning:: 
 
-    - 大规模使用 `CoffeeScript`_ 时,是有潜在杯具的:
-    - `A Case Against Using CoffeeScript ☃ Ryan Florence Online <http://ryanflorence.com/2011/2012/case-against-coffeescript/>`_
-
+    - 走起!
 

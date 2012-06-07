@@ -7,6 +7,8 @@
 .. _Gmail: http://zh.wikipedia.org/wiki/GMail
 .. _crx: http://code.google.com/chrome/extensions/getstarted.html
 
+.. _Inkscape: http://inkscape.org/
+
 .. 常用工具 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _tmux: http://www.linuxtoy.org/archives/from-screen-to-tmux.html
 .. _git: http://progit.org/book/zh/

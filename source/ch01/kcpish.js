@@ -10,12 +10,17 @@ var ASKTYPE = "/phish/?"
 // Called when the url of a tab changes.
 function checkForValidUrl(tabId, changeInfo, tab) {
     // If the letter 'g' is found in the tab's URL...
+    //console.log(tab.url)
     if ("loading"==tab.status) {
         var crtURI = window.btoa (tab.url)
+        //console.log(crtURI)
         var timestamp = Date.parse(new Date())/1000+".512"
+        //console.log(timestamp)
         var signbase = ASKTYPE+"appkey="+APPKEY+"&q="+crtURI+"&timestamp="+ timestamp
         var sign = hex_md5(signbase+SECRET)
+        //console.log(sign)
         var askuri = ASKHOST+signbase+"&sign="+sign
+        //console.log(askuri)
         checKcPishing(askuri,tabId)
     }
 }
@@ -30,7 +35,7 @@ function checKcPishing(URI,tabId) {
     if (req.readyState == 4) {
         // JSON.parse does not evaluate the attacker's scripts.
         var resp = JSON.parse(req.responseText)
-        console.log(req.responseText)
+        //console.log(req.responseText)
         if(1==resp.phish){
             chrome.pageAction.show(tabId)
             showAlertMsg()
@@ -40,7 +45,16 @@ function checKcPishing(URI,tabId) {
     req.send(null)
 }
 
+/*
+ * A JavaScript implementation of the Pishing check base
+ * http://code.ijinshan.com/api/devmore4.html
+ * Version 1.1 Copyright (C) ijinshan.com 2010-2011
+ * Distributed under the Apache License v2
+ * See http://elffic.bitbucket.org/ for more info.
+ */
 
+/* Usgae chrome.tabs.executeScript recovered crt page:
+*/
 function showAlertMsg() {
     msg ="<h1>Alert!报警!</h1>\
         <h2>由<a href=http://code.ijinshan.com/api/devmore4.html>金山云安全网址查询</a>得知</h2>\
@@ -53,3 +67,4 @@ function showAlertMsg() {
     chrome.tabs.executeScript(null,
                {code:"document.body.innerHTML='"+msg+"'"})
 }
+

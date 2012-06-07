@@ -6,12 +6,12 @@
 
 最终,完成所有功能的配置和代码:
 
-- 版本仓库: https://github.com/ZoomQuiet/chaos2node
-- 对外发布: http://urisaok.no.de/ 
+- 版本仓库: https://github.com/ZoomQuiet/chaos2crx
+- 对外发布: https://chrome.google.com/webstore/detail/agpdkbkbdkdfihkcfhfjlnebnmcjeabc
 - 相关视频: 
 
-    - `{2月16日语音讲座vol.42}ZQ: 网址云安node.js结合 <http://bbs.code.ijinshan.com/thread-1578-1-1.html>`_
-    - `{2月23日语音讲座vol.43}ZQ: 网址云服务结合mongo <http://bbs.code.ijinshan.com/thread-1590-1-1.html>`_
+    - `{10月13日语音讲座vol.28}ZQ: Chrome插件开发基础 <http://bbs.code.ijinshan.com/thread-1424-1-3.html>`_
+    - `{10月20日语音讲座vol.29}ZQ: Chrome插件开发实例 <http://bbs.code.ijinshan.com/thread-1427-1-3.html>`_
 
 
 
@@ -19,25 +19,29 @@
 接下来
 ---------------
 
-不论 `Joyent`_ 多给力, `no.de`_ 应用托管服务毕竟是国外主机!
+其实这个 `elf` 只能算是 `crx`_ 的练习作品, `猎豹浏览器`_ 本身就已经内置了相同机制的功能!
 
-- 在 `GFW`_ 的作用下,誰也不知道什么时候受到什么牵连无法使用
-- 所以,能在墙内有个免费的 `node.js`_ 应用托管,那就好了,,,
+- 当然,扩展是兼容 Chrome 的,是可以安装到 Chrome 的,以便没有内核级的 钓鱼检测功能的 Chrome 可以通过 `crx`_ 透明的享受到 金山云的服务!
+- 其实, `crx`_ 的开发乐趣也正在于此:
+
+    - 我们可以自在的通过 `JavaScript`_ 令心爱的浏览器,作我们经常需要作的事儿!
+    - 不用求/等 `Google`_ 将新功能增补到新版本的浏览器来
+
+`这就是知识的力量!`
 
 
-NAE
+
+开发文档!
 ^^^^^^^^^^^^^^
 
-由 `cnodejs`_ .org 社区开发并运营的 `NAE`_ 就是这样一种服务!
 
-- 不过,不同于 `no.de`_ ,不是 虚拟主机型 托管服务
-- 而是, 类似 `GAE`_ 的 `PaaS`_ 平台型云服务:
+好吧,虽然,整个手册看起来的确可以在 `42`_ 分钟之内,完成并发布出一个有真实功能的扩展来
+- 但是,其实,真心要在之前,浏览足够多的开发文档,E文的,对 `crx`_ 的开发,有了正确的想象
+- 才能够比较舒服自然的在 `JavaScript`_ 的帮助下,快速正确的将想作的事儿表述给 `猎豹浏览器`_ 内核明白,并逐一自动达成!
 
-    - 接收代码
-    - 統一进行运行期自动管理
-    - 用户不用理会实际运行期,真实主机的情况
+所以,中文版本的完备的开发文档,应该説是所有想自个儿开发 `crx`_ 的朋友们最需要的了,,,
 
+接下来,就看俺怎么快速输出各种开发文档了,中文的! 敬请期待!
 
-具体的,在外一篇中继续乱入了,,,
-
+~ 2012.06.07 24:42 `Zoom.Quiet`_
 

@@ -133,6 +133,27 @@ kcpish.js
 
 
 
+调试
+^^^^^^^^^^^^^^^^^^^^^^
+
+不得不推荐国人经验: `chrome developer tool 调试技巧 - TaobaoUED <http://ued.taobao.com/blog/2012/06/03/debug-with-chrome-dev-tool/>`_
+
+- 其中最核心的日常最常用的调试技巧,其实就是使用日志打印!
+- 当然,因为 `crx`_ 的页面服务器式运行形式,不能使用以往的 `alert()` 函式打印成警告窗口了
+- 所以,有 `console.log()`
+- 注意到代码中大量的被注释了的 `console.log()` 吧?
+- 那都是一点点确认代码无误后才清除的
+- 想知道开发时的调试情景?
+
+
+.. _fig_1_3:
+.. figure:: ../_static/figs/ch1-3-console.png
+
+   插图.1-3 使用开发工具窗口里的控制台来实时观察扩展的运行情景
+
+
+
+
 搞掂?!
 ------------------
 
@@ -142,6 +163,10 @@ kcpish.js
 `JS`_ 真心 `碉堡` 了! 所有最常见的操作都内置了!
 
 - 字串的 `base64` 编码?! `window.btoa`
+- 对外请求,果然是`XMLHttpRequest`
+- 实际数据的接收使用 `req.onreadystatechange` 进行监控
+- 数据体直接解析: `JSON.parse(req.responseText)`
+- 当前时间戮只能先模拟小数点后的: `Date.parse(new Date())/1000+".512"`
 - 字串的 `md5` 编码: `hex_md5()`
     
     - 不过,这个,真心要使用外部模块
@@ -161,14 +186,10 @@ kcpish.js
 
 
 
-- 当前时间戮只能先模拟小数点后的: `Date.parse(new Date())/1000+".512"`
-- 对外请求,果然是`XMLHttpRequest`
-- 实际数据的接收使用 `req.onreadystatechange` 进行监控
-- 数据体直接解析: `JSON.parse(req.responseText)`
 
 
 
-37:15 ~ 小结
+27:15 ~ 小结
 ---------------------------
 
 ~ 这一堆,二十分鈡,整出来不难吧?
